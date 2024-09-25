@@ -11,12 +11,26 @@
     font-style: normal;
 }
 
+/* Title Styling */
+.title-container {
+    text-align: center;
+    color: white;
+    font-size: 5em;
+    margin-top: 50px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+.title-container h1 {
+    margin: 0;
+    line-height: 0.9;
+}
+
 /* Star Wars crawl effect */
 body {
     margin: 0;
     overflow: hidden;
-    background: url('Satelite test.png') no-repeat center center fixed; /* Setting the image as background */
-    background-size: cover; /* Ensures the image covers the entire background */
+    background: url('Satelite test.png') no-repeat center center fixed;
+    background-size: cover;
     color: yellow;
     height: 100vh;
     perspective: 500px;
