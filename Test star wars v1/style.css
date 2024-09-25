@@ -15,7 +15,8 @@
 body {
     margin: 0;
     overflow: hidden;
-    background: black;
+    background: url('Satelite test.png') no-repeat center center fixed; /* Setting the image as background */
+    background-size: cover; /* Ensures the image covers the entire background */
     color: yellow;
     height: 100vh;
     perspective: 500px;
