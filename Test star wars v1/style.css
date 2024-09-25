@@ -1,0 +1,49 @@
+/* Silkscreen CSS classes */
+.silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.silkscreen-bold {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Star Wars crawl effect */
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    color: yellow;
+    height: 100vh;
+    perspective: 500px;
+}
+
+.crawl {
+    position: relative;
+    top: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    transform-origin: 50% 100%;
+    animation: crawl 60s linear infinite;
+}
+
+.crawl .content {
+    font-size: 2em;
+    text-align: justify;
+    line-height: 1.5;
+    transform: rotateX(25deg);
+}
+
+@keyframes crawl {
+    0% {
+        top: 100vh;
+        transform: rotateX(25deg) translateZ(0);
+    }
+    100% {
+        top: -200%;
+        transform: rotateX(25deg) translateZ(-1000px);
+    }
+}
