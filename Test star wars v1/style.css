@@ -1,12 +1,12 @@
 /* Silkscreen CSS classes */
 .silkscreen-regular {
-    font-family: "Silkscreen", sans-serif;
+    font-family: "Silkscreen";
     font-weight: 400;
     font-style: normal;
 }
 
 .silkscreen-bold {
-    font-family: "Silkscreen", sans-serif;
+    font-family: "Silkscreen";
     font-weight: 700;
     font-style: normal;
 }
@@ -17,7 +17,7 @@
     color: white;
     font-size: 3em;
     margin-top: 50px;
-    font-family: "Silkscreen", sans-serif;
+    font-family: "Silkscreen";
     position: relative;
     z-index: 1; /* Ensure it stays above the video */
 }
