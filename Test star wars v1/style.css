@@ -18,24 +18,38 @@
     font-size: 3em;
     margin-top: 50px;
     font-family: "Silkscreen", sans-serif;
+    position: relative;
+    z-index: 1; /* Ensure it stays above the video */
 }
 
 .title-container h1 {
     margin: 0;
     line-height: 0.9;
+    color: white;
+    /* Apply the inner shadow filter */
+    filter: url(#inner-shadow);
 }
 
 /* Star Wars crawl effect */
 body {
     margin: 0;
     overflow: hidden;
-    background: url('Satelite test.png') no-repeat center center fixed;
-    background-size: cover;
     color: yellow;
     height: 100vh;
     perspective: 500px;
 }
 
+/* Video Background */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1; /* Place the video behind other elements */
+}
+
+/* Crawl Text */
 .crawl {
     position: relative;
     top: 100vh;
@@ -43,6 +57,7 @@ body {
     margin: 0 auto;
     transform-origin: 50% 100%;
     animation: crawl 60s linear infinite;
+    z-index: 1; /* Ensure it stays above the video */
 }
 
 .crawl .content {
