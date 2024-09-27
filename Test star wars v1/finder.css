@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #00f; /* Bright blue background */
+    background-color: rgb(170, 210, 231); /* Bright blue background */
     color: white;
     font-family: "Silkscreen";
 }
@@ -8,4 +8,17 @@ body {
 h1 {
     text-align: center;
     margin-top: 50px;
+}
+
+/* Styling for the Back Link */
+nav {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
 }
