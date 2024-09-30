@@ -30,6 +30,11 @@ nav a {
     justify-content: center;
     margin-top: 20px;
 
+    #sun {
+        offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
+        offset-distance: 100%;
+    }
+
     /* Additional styling */
     /* width: 100%; */
     /* height: auto; */
@@ -51,7 +56,3 @@ nav a {
     width: 100%;
 }
 
-#sun {
-    offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
-    offset-distance: 100%;
-}
