@@ -26,7 +26,6 @@ nav a {
 
 #svg-container {
     /* Center the SVG */
-    margin: auto;
     display: flex;
     justify-content: center;
     margin-top: 20px;
