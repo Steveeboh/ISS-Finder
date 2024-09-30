@@ -2,32 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISS Finder</title>
-    <!-- Embed Silkscreen font -->
+    
+    <!-- Google Font: Silkscreen -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Viewport Meta Tag for Responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="finder.css">
+
+    <!-- Include Moment.js and Moment Timezone -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js" crossorigin="anonymous"></script>
 </head>
-<body style="margin: 0; background-color: rgb(170, 210, 231); color: white; font-family: 'Silkscreen'; line-height: normal;">
+<body>
+
     <!-- Back to Landing Page Link -->
-    <nav style="position: absolute; top: 10px; left: 10px;">
-        <a href="index.html" style="color: white; text-decoration: none; font-size: 1.2em;">← Back to Landing Page</a>
+    <nav>
+        <a href="index.html">← Back to Landing Page</a>
     </nav>
 
-    <!-- Vector Image -->
-    <img alt="" src="Vector 3.svg" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+    <!-- Welcome Header -->
+    <h1>Welcome to the ISS Finder Page</h1>
 
-    <h1 style="text-align: center; margin-top: 50px;">Welcome to the ISS Finder Page</h1>
+    <!-- City Selection Dropdown -->
+    <div style="text-align: center; margin-top: 20px;">
+        <label for="city-select" style="font-size: 1.2em;">Select a City:</label>
+        <select id="city-select" style="font-size: 1em; padding: 5px;">
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
 
-    <!-- SVG Container -->
- <!-- SVG Container -->
-<div id="svg-container" style="margin: auto;">
-    <img src="Bogen_schwarz.svg" alt="Bogen Schwarz" style="width: 100%; height: auto; display: block; margin: 0 auto;">
-</div>
+    <!-- Time Display -->
+    <div style="text-align: center; margin-top: 20px;">
+        <p>Sunrise: <span id="sunrise-time">--:--</span></p>
+        <p>Sunset: <span id="sunset-time">--:--</span></p>
+        <p>Current Time: <span id="current-time">--:--</span></p>
+    </div>
 
+    <!-- Sun Arc and Celestial Bodies -->
+    <div id="sun-arc">
+        <!-- Sun -->
+        <img id="sun" src="/Test star wars v1/SVG/Sonne.svg" alt="Sun">
+        <!-- Moon -->
+        <img id="moon" src="/Test star wars v1/SVG/Mond.svg" alt="Moon" style="display: none;">
+    </div>
+
+    <!-- JavaScript file for interactivity -->
+    <script src="finder.js"></script>
 
 </body>
 </html>
