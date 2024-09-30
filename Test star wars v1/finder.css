@@ -1,19 +1,17 @@
-/* General Styles */
 body {
     margin: 0;
     background-color: rgb(170, 210, 231); /* Bright blue background */
     color: white;
-    font-family: 'Silkscreen', sans-serif;
+    font-family: "Silkscreen";
     line-height: normal;
 }
 
-/* Heading Styling */
 h1 {
     text-align: center;
     margin-top: 50px;
 }
 
-/* Navigation styling */
+/* Styling for the Back Link */
 nav {
     position: absolute;
     top: 10px;
@@ -26,56 +24,24 @@ nav a {
     font-size: 1.2em;
 }
 
-/* Style for the sun arc */
-#sun-arc {
-    position: relative;
-    width: 300px;
-    height: 150px;
-    margin: 40px auto;
-    background-image: url('sun-arc.svg'); /* Placeholder for sun arc */
-    background-size: contain;
-    background-repeat: no-repeat;
+#svg-container {
+    /* Center the SVG */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    /* Additional styling */
+    /* width: 100%; */
+    /* height: auto; */
 }
 
-/* Sun and Moon Styles */
-#sun, #moon {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-}
+#svg-container2 {
+    /* Center the SVG */
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
 
-/* Style for time display */
-#sunrise-time, #sunset-time, #current-time {
-    font-size: 1.2em;
-}
-
-/* Responsive Design Adjustments */
-@media (max-width: 768px) {
-    #sun-arc {
-        width: 250px;
-        height: 125px;
-    }
-
-    #sun, #moon {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 450px) {
-    #sun-arc {
-        width: 200px;
-        height: 100px;
-    }
-
-    #sun, #moon {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-/* Background Gradients for Different Times of Day */
-body.night {
-    background-color: rgb(3, 7, 13); /* Dark background for night */
+    /* Additional styling */
+    /* width: 100%; */
+    /* height: auto; */
 }

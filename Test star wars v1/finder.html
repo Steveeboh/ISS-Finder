@@ -1,57 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="finder.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISS Finder</title>
-    
-    <!-- Google Font: Silkscreen -->
+    <!-- Embed Silkscreen font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Link to CSS -->
+    <!-- Viewport Meta Tag for Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="finder.css">
-
-    <!-- Include Moment.js and Moment Timezone -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.40/moment-timezone-with-data.min.js" crossorigin="anonymous"></script>
 </head>
-<body>
-
+<body style="margin: 0; background-color: rgb(170, 210, 231); color: white; font-family: 'Silkscreen'; line-height: normal;">
     <!-- Back to Landing Page Link -->
-    <nav>
-        <a href="index.html">← Back to Landing Page</a>
+    <nav style="position: absolute; top: 10px; left: 10px;">
+        <a href="index.html" style="color: white; text-decoration: none; font-size: 1.2em;">← Back to Landing Page</a>
     </nav>
 
-    <!-- Welcome Header -->
-    <h1>Welcome to the ISS Finder Page</h1>
+    <!-- Vector Image -->
+    <img alt="" src="Vector 3.svg" style="width: 100%; height: auto; display: block; margin: 0 auto;">
 
-    <!-- City Selection Dropdown -->
-    <div style="text-align: center; margin-top: 20px;">
-        <label for="city-select" style="font-size: 1.2em;">Select a City:</label>
-        <select id="city-select" style="font-size: 1em; padding: 5px;">
-            <!-- Options will be populated by JavaScript -->
-        </select>
+    <h1 style="text-align: center; margin-top: 50px;">Welcome to the ISS Finder Page</h1>
+
+    <!-- SVG Container -->
+    <div id="svg-container" style="margin: auto;">
+        <svg width="1352" height="287" viewBox="0 0 1352 287" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Bogen schwarz" filter="url(#filter0_d_6_18)">
+                <path d="M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269" stroke="black" stroke-width="20" stroke-linecap="round"/>
+            </g>
+            <defs>
+                <filter id="filter0_d_6_18" x="-0.0000610352" y="0.192627" width="1352" height="286.807" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="2"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_6_18"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_6_18" result="shape"/>
+                </filter>
+            </defs>
+        </svg>
     </div>
 
-    <!-- Time Display -->
-    <div style="text-align: center; margin-top: 20px;">
-        <p>Sunrise: <span id="sunrise-time">--:--</span></p>
-        <p>Sunset: <span id="sunset-time">--:--</span></p>
-        <p>Current Time: <span id="current-time">--:--</span></p>
+    <div id="svg-container2" style="margin: auto;">
+        <svg width="1440" height="686" viewBox="0 0 1440 686" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Wolken bew&#195;&#182;lkt">
+            <g id="Union" filter="url(#filter0_iif_95_2)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M210.151 786.273C188.527 801.235 162.287 810 134 810C59.9938 810 0 750.006 0 676C0 601.994 59.9938 542 134 542C138.703 542 143.35 542.242 147.928 542.715C144.718 531.361 143 519.381 143 507C143 434.651 201.651 376 274 376C340.623 376 395.63 425.734 403.92 490.1C415.386 485.519 427.899 483 441 483C494.2 483 537.697 524.543 540.82 576.958C582.694 590.401 613 629.661 613 676C613 733.438 566.438 780 509 780C484.551 780 462.072 771.563 444.316 757.442C421.757 804.503 373.674 837 318 837C274.61 837 235.831 817.261 210.151 786.273Z" fill="#D9D9D9"/>
+            </g>
+            <g id="Union_2" filter="url(#filter1_iif_95_2)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1168.12 521.94C1142.9 540.244 1112.29 550.967 1079.3 550.967C992.977 550.967 923 477.569 923 387.028C923 296.487 992.977 223.089 1079.3 223.089C1084.78 223.089 1090.2 223.385 1095.54 223.964C1091.8 210.073 1089.79 195.417 1089.79 180.269C1089.79 91.7549 1158.2 20 1242.59 20C1320.3 20 1384.46 80.8454 1394.13 159.593C1407.5 153.989 1422.1 150.907 1437.38 150.907C1499.43 150.907 1550.17 201.731 1553.81 265.858C1602.65 282.304 1638 330.336 1638 387.028C1638 457.299 1583.69 514.265 1516.69 514.265C1488.18 514.265 1461.96 503.943 1441.25 486.667C1414.94 544.242 1358.85 584 1293.91 584C1243.3 584 1198.07 559.851 1168.12 521.94Z" fill="#D9D9D9"/>
+            </g>
+            <g id="Union_3" filter="url(#filter2_iif_95_2)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1272.17 760.762C1296.33 777.481 1325.65 787.276 1357.26 787.276C1439.96 787.276 1507 720.235 1507 637.537C1507 554.838 1439.96 487.798 1357.26 487.798C1352.01 487.798 1346.81 488.068 1341.7 488.597C1345.28 475.91 1347.2 462.522 1347.2 448.687C1347.2 367.84 1281.66 302.3 1200.82 302.3C1126.37 302.3 1064.9 357.875 1055.64 429.802C1042.82 424.683 1028.84 421.868 1014.2 421.868C954.754 421.868 906.148 468.29 902.657 526.862C855.866 541.883 822 585.755 822 637.537C822 701.721 874.031 753.752 938.215 753.752C965.536 753.752 990.655 744.324 1010.5 728.545C1035.71 781.133 1089.44 817.447 1151.65 817.447C1200.14 817.447 1243.47 795.39 1272.17 760.762Z" fill="#D9D9D9"/>
+            </g>
+            <g id="Union_4" filter="url(#filter3_iif_95_2)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M116.202 619.098C86.9567 638.831 51.4711 650.39 13.217 650.39C-86.8664 650.39 -168 571.266 -168 473.662C-168 376.057 -86.8664 296.933 13.217 296.933C19.5772 296.933 25.861 297.252 32.0523 297.876C27.7111 282.902 25.3882 267.102 25.3882 250.772C25.3882 155.353 104.705 78 202.548 78C292.646 78 367.036 143.592 378.247 228.483C393.754 222.442 410.676 219.119 428.393 219.119C500.339 219.119 559.163 273.909 563.387 343.038C620.015 360.767 661 412.547 661 473.662C661 549.414 598.031 610.824 520.354 610.824C487.29 610.824 456.89 599.697 432.878 581.074C402.37 643.14 337.343 686 262.052 686C203.374 686 150.93 659.967 116.202 619.098Z" fill="#D9D9D9"/>
+            </g>
+            <g id="Union_5" filter="url(#filter4_iif_95_2)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M638.151 800.273C616.527 815.235 590.287 824 562 824C487.994 824 428 764.006 428 690C428 615.994 487.994 556 562 556C566.703 556 571.35 556.242 575.928 556.715C572.718 545.361 571 533.381 571 521C571 448.651 629.651 390 702 390C768.623 390 823.63 439.734 831.92 504.1C843.386 499.519 855.899 497 869 497C922.2 497 965.697 538.543 968.82 590.958C1010.69 604.401 1041 643.661 1041 690C1041 747.438 994.438 794 937 794C912.551 794 890.072 785.563 872.316 771.442C849.757 818.503 801.674 851 746 851C702.61 851 663.831 831.261 638.151 800.273Z" fill="#D9D9D9"/>
+            </g>
+            </g>
+            <defs>
+            <filter id="filter0_iif_95_2" x="-20" y="351" width="663" height="506" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="30" dy="-25"/>
+            <feGaussianBlur stdDeviation="30"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_95_2"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="10" dy="10"/>
+            <feGaussianBlur stdDeviation="5"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="effect1_innerShadow_95_2" result="effect2_innerShadow_95_2"/>
+            <feGaussianBlur stdDeviation="10" result="effect3_foregroundBlur_95_2"/>
+            </filter>
+            <filter id="filter1_iif_95_2" x="903" y="-5" width="765" height="609" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="30" dy="-25"/>
+            <feGaussianBlur stdDeviation="30"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_95_2"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="10" dy="10"/>
+            <feGaussianBlur stdDeviation="5"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="effect1_innerShadow_95_2" result="effect2_innerShadow_95_2"/>
+            <feGaussianBlur stdDeviation="10" result="effect3_foregroundBlur_95_2"/>
+            </filter>
+            <filter id="filter2_iif_95_2" x="802" y="277.3" width="735" height="560.147" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="30" dy="-25"/>
+            <feGaussianBlur stdDeviation="30"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_95_2"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="10" dy="10"/>
+            <feGaussianBlur stdDeviation="5"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="effect1_innerShadow_95_2" result="effect2_innerShadow_95_2"/>
+            <feGaussianBlur stdDeviation="10" result="effect3_foregroundBlur_95_2"/>
+            </filter>
+            <filter id="filter3_iif_95_2" x="-188" y="53" width="879" height="653" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="30" dy="-25"/>
+            <feGaussianBlur stdDeviation="30"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_95_2"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="10" dy="10"/>
+            <feGaussianBlur stdDeviation="5"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="effect1_innerShadow_95_2" result="effect2_innerShadow_95_2"/>
+            <feGaussianBlur stdDeviation="10" result="effect3_foregroundBlur_95_2"/>
+            </filter>
+            <filter id="filter4_iif_95_2" x="408" y="365" width="663" height="506" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="30" dy="-25"/>
+            <feGaussianBlur stdDeviation="30"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_95_2"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="10" dy="10"/>
+            <feGaussianBlur stdDeviation="5"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.588235 0 0 0 0 0.803922 0 0 0 0 0.980392 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="effect1_innerShadow_95_2" result="effect2_innerShadow_95_2"/>
+            <feGaussianBlur stdDeviation="10" result="effect3_foregroundBlur_95_2"/>
+            </filter>
+            </defs>
+            </svg>
+            
     </div>
-
-    <!-- Sun Arc and Celestial Bodies -->
-    <div id="sun-arc">
-        <!-- Sun -->
-        <img id="sun" src="/Test star wars v1/SVG/Sonne.svg" alt="Sun">
-        <!-- Moon -->
-        <img id="moon" src="/Test star wars v1/SVG/Mond.svg" alt="Moon" style="display: none;">
-    </div>
-
-    <!-- JavaScript file for interactivity -->
-    <script src="finder.js"></script>
 
 </body>
 </html>
