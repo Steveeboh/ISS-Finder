@@ -25,26 +25,25 @@ nav a {
 }
 
 #svg-container {
-    /* Center the SVG */
-    display: flex;
-    justify-content: center;
+    width: 1352px;
     margin-top: 20px;
+    position: relative; /* Set the container to relative */
+}
 
-    #sun {
-        offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
-        offset-distance: 100%;
-    }
-
-    /* Additional styling */
-    /* width: 100%; */
-    /* height: auto; */
+#sun {
+    offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
+    offset-distance: 50%;
+    position: absolute;
+    top: 0%; /* Adjust positioning as needed */
+    left: 0%; /* Adjust positioning as needed */
+    /* transform: translate(30%, 50%); Centers the sun within the container */
 }
 
 #svg-container2 {
     /* Center the SVG */
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 0px;
     width: 100%;
 
     /* Additional styling */
