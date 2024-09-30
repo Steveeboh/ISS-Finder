@@ -3,6 +3,7 @@ body {
     background-color: rgb(170, 210, 231); /* Bright blue background */
     color: white;
     font-family: "Silkscreen";
+    line-height: normal;
 }
 
 h1 {
