@@ -26,24 +26,23 @@ nav a {
 
 #svg-container {
     width: 1352px;
-    margin-top: 20px;
+    margin-top: 0px;
     position: relative; /* Set the container to relative */
 }
 
 #sun {
     offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
-    offset-distance: 50%;
+    offset-distance: 50%; /* This will be dynamically updated */
     position: absolute;
-    top: 0%; /* Adjust positioning as needed */
-    left: 0%; /* Adjust positioning as needed */
-    /* transform: translate(30%, 50%); Centers the sun within the container */
+    top: 0%;
+    left: 0%;
 }
 
 #svg-container2 {
     /* Center the SVG */
     display: flex;
     justify-content: center;
-    margin-top: 0px;
+    margin-top: -500px;
     width: 100%;
 
     /* Additional styling */
@@ -55,3 +54,28 @@ nav a {
     width: 100%;
 }
 
+#sunrise-time {
+    offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
+    offset-distance: 0%; /* This will be dynamically updated */
+    position: absolute;
+    top: 50%;
+    left: 10.5%;
+    rotate: 42deg;
+}
+    
+
+
+#sunset-time{
+    offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
+    offset-distance: 100%; /* This will be dynamically updated */
+    position: absolute;
+    top: 319%;
+    left: 12%;
+    rotate: -43deg;
+}
+
+#iss-direction{
+    
+    color: rgba(1, 17, 120, 1);
+    font-size: 128px;
+}
