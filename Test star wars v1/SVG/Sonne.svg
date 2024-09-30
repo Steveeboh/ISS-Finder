@@ -1,5 +1,5 @@
-<svg width="434" height="385" viewBox="0 0 434 385" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Group 1">
+<svg width="430" height="385" viewBox="0 0 430 385" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Sonne">
 <g id="Ellipse 1" filter="url(#filter0_d_5_68)">
 <circle cx="225.5" cy="190.249" r="99.5" fill="#FAEA39"/>
 </g>
@@ -8,9 +8,7 @@
 </g>
 <path id="Vector 2" d="M230.033 5.04925C230.06 2.28796 227.844 0.0274404 225.082 0.000242591C222.321 -0.0269552 220.061 2.18946 220.033 4.95075L230.033 5.04925ZM220.033 4.95075L219.467 62.448L229.467 62.5465L230.033 5.04925L220.033 4.95075Z" fill="#F3FA39"/>
 <path id="Vector 3" d="M218.311 379.252C218.313 382.013 220.554 384.25 223.316 384.247C226.077 384.244 228.313 382.004 228.311 379.242L218.311 379.252ZM228.311 379.242L228.255 321.742L218.255 321.752L218.311 379.252L228.311 379.242Z" fill="#F3FA39"/>
-<g id="Vector 4" filter="url(#filter2_di_5_68)">
-<path d="M424.474 195.579C427.235 195.588 429.481 193.357 429.49 190.596C429.5 187.835 427.269 185.589 424.507 185.579L424.474 195.579ZM424.507 185.579L367.008 185.384L366.974 195.384L424.474 195.579L424.507 185.579Z" fill="#F3FA39"/>
-</g>
+<path id="Vector 4" d="M424.474 195.579C427.235 195.588 429.481 193.357 429.49 190.596C429.5 187.835 427.269 185.589 424.507 185.579L424.474 195.579ZM424.507 185.579L367.008 185.384L366.974 195.384L424.474 195.579L424.507 185.579Z" fill="#F3FA39"/>
 <path id="Vector 5" d="M5.01866 185.739C2.25725 185.728 0.0103393 187.959 3.48687e-05 190.72C-0.0102696 193.482 2.21994 195.728 4.98134 195.739L5.01866 185.739ZM4.98134 195.739L62.4809 195.953L62.5183 185.953L5.01866 185.739L4.98134 195.739Z" fill="#F3FA39"/>
 <path id="Vector 6" d="M81.1423 52.861C79.205 50.8932 76.0393 50.8686 74.0715 52.8059C72.1037 54.7433 72.0791 57.909 74.0164 59.8768L81.1423 52.861ZM74.0164 59.8768L114.357 100.851L121.483 93.835L81.1423 52.861L74.0164 59.8768Z" fill="#F3FA39"/>
 <path id="Vector 7" d="M378.036 61.9636C380.107 60.1366 380.305 56.9769 378.478 54.9063C376.651 52.8356 373.491 52.6381 371.42 54.4651L378.036 61.9636ZM371.42 54.4651L328.304 92.5081L334.921 100.007L378.036 61.9636L371.42 54.4651Z" fill="#F3FA39"/>
@@ -43,22 +41,6 @@
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_dropShadow_5_68" result="effect2_dropShadow_5_68"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_5_68" result="shape"/>
-</filter>
-<filter id="filter2_di_5_68" x="362.974" y="184.884" width="70.5166" height="18.6951" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5_68"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5_68" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="-0.5" dy="-0.5"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="shape" result="effect2_innerShadow_5_68"/>
 </filter>
 </defs>
 </svg>
