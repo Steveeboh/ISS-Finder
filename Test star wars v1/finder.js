@@ -212,17 +212,23 @@ function updateWeatherAppearance(weatherCode) {
     bodyElement.classList.remove('sunny-weather', 'cloudy-weather', 'rainy-weather');
     weatherSvgContainer.innerHTML = ''; // Clear the previous weather SVG
 
+    console.log(weatherCode);
+
     // Determine the weather state based on the weather code
     if (weatherCode >= 0 && weatherCode <= 3) {
         // Good weather (sunny)
         bodyElement.classList.add('sunny-weather');
         bodyElement.style.backgroundColor = 'rgba(155, 219, 254, 1)';
         weatherSvgContainer.innerHTML = '<img src="SVG/Wolken sonnig.svg" alt="Sunny">';
+
+        disableRainOverlay(); // Disable rain overlay if it was enabled
     } else if (weatherCode >= 45 && weatherCode <= 48) {
         // Cloudy weather
         bodyElement.classList.add('cloudy-weather');
         bodyElement.style.backgroundColor = 'rgba(170, 210, 231, 1)';
         weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+
+        disableRainOverlay(); // Disable rain overlay if it was enabled
     } else if (weatherCode >= 61 && weatherCode <= 67 || weatherCode >= 80 && weatherCode <= 82) {
         // Rainy weather
         bodyElement.classList.add('rainy-weather');
@@ -236,6 +242,8 @@ function updateWeatherAppearance(weatherCode) {
         bodyElement.classList.add('cloudy-weather');
         bodyElement.style.backgroundColor = 'rgba(170, 210, 231, 1)';
         weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+
+        disableRainOverlay(); // Disable rain overlay if it was enabled
     }
 }
 
@@ -252,6 +260,10 @@ function enableRainOverlay() {
     
     document.body.innerHTML += rainOverlay;
     makeItRain();
+}
+
+function disableRainOverlay() {
+    document.querySelectorAll('.rain').forEach(el => el.innerHTML = '');
 }
 
 // Get the user's location and fetch weather data
