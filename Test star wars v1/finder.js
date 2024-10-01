@@ -182,3 +182,110 @@ getUserPosition()
     .catch(error => {
         console.error("Error getting user position:", error);
     });
+
+// Fetch weather data and update the appearance
+function fetchWeather(latitude, longitude) {
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Get the current weather code from the API response
+            const weatherCode = data.current_weather.weathercode;
+
+            console.log("Weather Code:", weatherCode); // For debugging
+
+            // Call the function to update the appearance based on the weather code
+            updateWeatherAppearance(weatherCode);
+        })
+        .catch(error => {
+            console.error("Error fetching weather data:", error);
+        });
+}
+
+// Update the website's appearance based on the weather code
+function updateWeatherAppearance(weatherCode) {
+    const bodyElement = document.body;
+    const weatherSvgContainer = document.getElementById('svg-container2');
+
+    // Clear previous weather classes
+    bodyElement.classList.remove('sunny-weather', 'cloudy-weather', 'rainy-weather');
+    weatherSvgContainer.innerHTML = ''; // Clear the previous weather SVG
+
+    // Determine the weather state based on the weather code
+    if (weatherCode >= 0 && weatherCode <= 3) {
+        // Good weather (sunny)
+        bodyElement.classList.add('sunny-weather');
+        bodyElement.style.backgroundColor = 'rgba(155, 219, 254, 1)';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken sonnig.svg" alt="Sunny">';
+    } else if (weatherCode >= 45 && weatherCode <= 48) {
+        // Cloudy weather
+        bodyElement.classList.add('cloudy-weather');
+        bodyElement.style.backgroundColor = 'rgba(170, 210, 231, 1)';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+    } else if (weatherCode >= 61 && weatherCode <= 67 || weatherCode >= 80 && weatherCode <= 82) {
+        // Rainy weather
+        bodyElement.classList.add('rainy-weather');
+        bodyElement.style.backgroundColor = 'rgba(180, 204, 217, 1)';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Rainy">';
+        
+        // Apply the rain effect overlay
+        enableRainOverlay();
+    } else {
+        // Default to cloudy weather if unrecognized code
+        bodyElement.classList.add('cloudy-weather');
+        bodyElement.style.backgroundColor = 'rgba(170, 210, 231, 1)';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+    }
+}
+
+// Enable rain overlay when it’s rainy
+function enableRainOverlay() {
+    const rainOverlay = `
+        <div class="rain front-row"></div>
+        <div class="rain back-row"></div>
+        <div class="toggles">
+            <div class="splat-toggle toggle active">SPLAT</div>
+            <div class="back-row-toggle toggle active">BACK<br>ROW</div>
+            <div class="single-toggle toggle">SINGLE</div>
+        </div>`;
+    
+    document.body.innerHTML += rainOverlay;
+    makeItRain();
+}
+
+// Get the user's location and fetch weather data
+getUserPosition()
+    .then(position => {
+        const { latitude, longitude } = position;
+        fetchWeather(latitude, longitude); // Fetch weather based on user's position
+    })
+    .catch(error => {
+        console.error("Error getting user position:", error);
+    });
+
+// Rain animation function (Make it Rain)
+var makeItRain = function () {
+    // clear out everything
+    document.querySelectorAll('.rain').forEach(el => el.innerHTML = '');
+
+    var increment = 0;
+    var drops = "";
+    var backDrops = "";
+
+    while (increment < 100) {
+        // couple random numbers to use for various randomizations
+        var randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
+        var randoFiver = (Math.floor(Math.random() * (5 - 2 + 1) + 2));
+
+        increment += randoFiver;
+
+        drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+        backDrops += '<div class="drop" style="right: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+    }
+
+    document.querySelector('.rain.front-row').innerHTML = drops;
+    document.querySelector('.rain.back-row').innerHTML = backDrops;
+};
+
+
