@@ -245,9 +245,9 @@ function enableRainOverlay() {
         <div class="rain front-row"></div>
         <div class="rain back-row"></div>
         <div class="toggles">
-            <div class="splat-toggle toggle active">SPLAT</div>
-            <div class="back-row-toggle toggle active">BACK<br>ROW</div>
-            <div class="single-toggle toggle">SINGLE</div>
+            <div class="splat-toggle toggle active"></div>
+            <div class="back-row-toggle toggle active"><br></div>
+            <div class="single-toggle toggle"></div>
         </div>`;
     
     document.body.innerHTML += rainOverlay;
