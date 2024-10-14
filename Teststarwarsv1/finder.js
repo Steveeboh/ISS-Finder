@@ -107,9 +107,9 @@ async function startPositionUpdates(latitude, longitude) {
     }
 }
 
-// Function to fetch the ISS position
+// Function to fetch the ISS position via the PHP proxy
 async function fetchISSPosition() {
-    const issApiUrl = "http://api.open-notify.org/iss-now.json";
+    const issApiUrl = "https://im3steve.rigged-motion.com/etl/finder.php";  // Point this to your PHP proxy file
 
     try {
         const response = await fetch(issApiUrl);
@@ -123,6 +123,7 @@ async function fetchISSPosition() {
         return null;
     }
 }
+
 
 // Function to calculate the direction between two points (user and ISS)
 function calculateDirection(userLat, userLon, issLat, issLon) {
