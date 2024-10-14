@@ -97,3 +97,12 @@ body {
         transform: rotateX(25deg) translateZ(-1000px);
     }
 }
+
+/* Styling for the Back Link */
+nav {
+    font-family: "Silkscreen";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+}
