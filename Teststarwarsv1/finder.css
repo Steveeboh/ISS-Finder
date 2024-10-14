@@ -110,7 +110,7 @@ nav a {
     rotate: -43deg;
 }
 
-/* Stile für den Nachtmodus */
+/* Stile fÃ¼r den Nachtmodus */
 #sunrise-time.night-mode {
     offset-path: path('M14 269V269C387.88 -76.0765 964.12 -76.0765 1338 269V269');
     offset-distance: 100%; /* This will be dynamically updated */
