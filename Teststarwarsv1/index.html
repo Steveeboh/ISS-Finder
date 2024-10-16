@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="finder.js"></script>
     <meta charset="UTF-8">
     <title>Star Wars Crawl Effect</title>
     <!-- Embed Silkscreen font -->
@@ -10,24 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <nav style="position: fixed; top: 10px; left: 10px;">
-      <a href="finder.html" style="color: white; text-decoration: none; font-size: 1.2em;">← go to ISS Finder</a>
-  </nav>
-  
+    <script src="finder.js"></script>
 </head>
 <body>
+    <nav style="position: fixed; top: 10px; left: 10px;">
+        <a href="finder.html" style="color: white; text-decoration: none; font-size: 1.2em;">← go to ISS Finder</a>
+    </nav>
+
     <!-- Video background -->
     <video autoplay muted loop id="background-video">
-        <source src="Satelite Video.mp4" type="video/mp4">
+        <source src="Satellite_Video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-      <!-- Overlay video -->
-      <video autoplay muted loop id="overlay-video">
-        <source src="Satelite Video Alpha.webm" type="video/webm">
+    <!-- Overlay video -->
+    <video autoplay muted loop id="overlay-video">
+        <source src="Satellite_Video_Alpha.webm" type="video/webm">
         Your browser does not support the video tag.
-        </video>
+    </video>
 
     <div class="title-container"> 
         <a href="finder.html">
@@ -37,35 +36,37 @@
     </div>
 
     <div class="crawl-container">
-      <div class="crawl silkscreen-regular">
-          <div class="content">
-              <p>Welcome to our ISS Tracker—a one-stop destination for sky enthusiasts eager to spot the International Space Station soaring ve! Our website features an interactive compass that points directly toward the ISS in real-time, allowing you to know exactly where to look in the sky from your location. We also provide up-to-the-minute weather updates, showing whether it's currently cloudy in your area, so you can plan the perfect time for skywatching. Plus, with local sunrise and sunset times at your fingertips, you'll always know the optimal moments to catch a glimpse of this incredible orbiting laboratory.
+        <div class="crawl silkscreen-regular">
+            <div class="content">
+                <p>Welcome to our ISS Tracker—a one-stop destination for sky enthusiasts eager to spot the International Space Station soaring overhead! Our website shows you the exact direction in which the ISS is located from your position in real-time, making it easy to know where to look in the sky. We also provide up-to-the-minute weather updates, showing whether it's currently cloudy in your area, so you can plan the perfect time for skywatching. Additionally, you can see the time since the last closest approach of the ISS to your location, ensuring you never miss another opportunity to spot it. Plus, with local sunrise and sunset times at your fingertips, you'll always know the optimal moments to catch a glimpse of this incredible orbiting laboratory.
 
-                  The International Space Station is not just a bright dot moving across the night sky; it's a monumental achievement of international collaboration and engineering. Orbiting approximately 250 miles (400 kilometers) above Earth at a speed of about 17,500 miles per hour (28,000 kilometers per hour), the ISS completes an orbit around our planet every 90 minutes. Since its inception in 1998, the station has been continuously inhabited, serving as a microgravity and space environment research laboratory where astronauts conduct experiments in biology, physics, astronomy, and more. It's a testament to what humanity can accomplish when we work together across borders.
-                  
-                  By using our ISS location finder, you join a global community of space enthusiasts and curious minds who look up to the stars and find inspiration. Whether you're an amateur astronomer, a student, or someone who simply loves gazing at the night sky, our tool makes it easy to experience the wonder of seeing the ISS with your own eyes.
-                  
-                  So why wait? Dive into the cosmos from your backyard. Use our compass to locate the ISS, check the weather for clear skies, and keep track of sunrise and sunset times to ensure the best viewing experience. Let's explore the final frontier together—happy stargazing!</p>
-          </div>
-      </div>
+                The International Space Station is not just a bright dot moving across the night sky; it's a monumental achievement of international collaboration and engineering. Orbiting approximately 250 miles (400 kilometers) above Earth at a speed of about 17,500 miles per hour (28,000 kilometers per hour), the ISS completes an orbit around our planet every 90 minutes. Since its inception in 1998, the station has been continuously inhabited, serving as a microgravity and space environment research laboratory where astronauts conduct experiments in biology, physics, astronomy, and more. It's a testament to what humanity can accomplish when we work together across borders.
+
+                By using our ISS location finder, you join a global community of space enthusiasts and curious minds who look up to the stars and find inspiration. Whether you're an amateur astronomer, a student, or someone who simply loves gazing at the night sky, our tool makes it easy to experience the wonder of seeing the ISS with your own eyes.
+
+                So why wait? Dive into the cosmos from your backyard. Use our site to locate the ISS in the sky, check the weather for clear skies, track the last closest approach time, and keep an eye on sunrise and sunset times to ensure the best viewing experience. Let's explore the final frontier together—happy stargazing!</p>
+            </div>
+        </div>
     </div>
 
     <!-- SVG Filter for Inner Shadow -->
     <svg width="0" height="0">
-      <defs>
-        <filter id="inner-shadow" x0="-50%" y0="-50%" width="200%" height="200%">
-          <!--<feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"></feGaussianBlur>-->
-          <feOffset dy="-0" dx="-4"></feOffset>
-          <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"></feComposite>
-          <feColorMatrix type="matrix"
-            values="0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0.5 0">
-          </feColorMatrix>
-          <feBlend in2="SourceGraphic" mode="multiply"></feBlend>
-        </filter>
-      </defs>
+        <defs>
+            <filter id="inner-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <!--<feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"></feGaussianBlur>-->
+                <feOffset dy="-0" dx="-4"></feOffset>
+                <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"></feComposite>
+                <feColorMatrix type="matrix"
+                    values="0 0 0 0 0
+                            0 0 0 0 0
+                            0 0 0 0 0
+                            0 0 0 0.5 0">
+                </feColorMatrix>
+                <feBlend in2="SourceGraphic" mode="multiply"></feBlend>
+            </filter>
+        </defs>
     </svg>
 </body>
 </html>
+
+

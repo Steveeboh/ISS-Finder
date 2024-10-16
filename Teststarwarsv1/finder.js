@@ -184,15 +184,15 @@ function updateWeatherAppearance(weatherCode) {
         disableRainOverlay();
     } else if (weatherCode >= 45 && weatherCode <= 48) {
         bodyElement.classList.add('cloudy-weather');
-        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken_bewölkt.svg" alt="Cloudy">';
         disableRainOverlay();
     } else if ((weatherCode >= 61 && weatherCode <= 67) || (weatherCode >= 80 && weatherCode <= 82)) {
         bodyElement.classList.add('rainy-weather');
-        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Rainy">';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken_bewölkt.svg" alt="Rainy">';
         enableRainOverlay();
     } else {
         bodyElement.classList.add('cloudy-weather');
-        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken_bewölkt.svg" alt="Cloudy">';
         disableRainOverlay();
     }
 }
@@ -328,6 +328,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("iss-closest-time").textContent = 'Error fetching user position.';
     }
 });
+
 
 
 
