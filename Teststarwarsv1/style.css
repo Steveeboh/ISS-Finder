@@ -47,6 +47,12 @@ body {
     perspective: 500px;
 }
 
+@media (max-width: 1024px) {
+    .crawl-container {
+        perspective: 14000px !important; /* Increase perspective for larger screens */
+    }
+}
+
 /* Video Background */
 #background-video {
     object-fit: cover;
