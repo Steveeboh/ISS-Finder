@@ -28,7 +28,7 @@
 
 .title-container h1 {
     margin: 0;
-    line-height: 0.9;
+    /* line-height: 0.9; */
     color: white;
     /* Apply the inner shadow filter */
     filter: url(#inner-shadow);
