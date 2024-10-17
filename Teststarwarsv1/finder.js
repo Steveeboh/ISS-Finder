@@ -170,52 +170,102 @@ async function fetchWeather(latitude, longitude) {
     }
 }
 
-// Function to update the website's appearance based on the weather code
+// Update the website's appearance based on the weather code
 function updateWeatherAppearance(weatherCode) {
     const bodyElement = document.body;
     const weatherSvgContainer = document.getElementById('svg-container2');
 
-    bodyElement.className = ''; // Clear any existing weather classes
-    weatherSvgContainer.innerHTML = '';
+    // Clear previous weather classes
+    bodyElement.classList.remove('sunny-weather', 'cloudy-weather', 'rainy-weather');
+    weatherSvgContainer.innerHTML = ''; // Clear the previous weather SVG
 
+    console.log(weatherCode);
+
+    // Determine the weather state based on the weather code
     if (weatherCode >= 0 && weatherCode <= 3) {
+        // Good weather (sunny)
         bodyElement.classList.add('sunny-weather');
+        bodyElement.style.backgroundColor = 'rgba(155, 219, 254, 1)';
         weatherSvgContainer.innerHTML = '<img src="SVG/Wolken sonnig.svg" alt="Sunny">';
-        disableRainOverlay();
+
+        disableRainOverlay(); // Disable rain overlay if it was enabled
     } else if (weatherCode >= 45 && weatherCode <= 48) {
+        // Cloudy weather
         bodyElement.classList.add('cloudy-weather');
-        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken_bewölkt.svg" alt="Cloudy">';
-        disableRainOverlay();
-    } else if ((weatherCode >= 61 && weatherCode <= 67) || (weatherCode >= 80 && weatherCode <= 82)) {
+        bodyElement.style.backgroundColor = 'rgba(170, 210, 231, 1)';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+
+        disableRainOverlay(); // Disable rain overlay if it was enabled
+    } else if (weatherCode >= 61 && weatherCode <= 67 || weatherCode >= 80 && weatherCode <= 82) {
+        // Rainy weather
         bodyElement.classList.add('rainy-weather');
-        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken_bewölkt.svg" alt="Rainy">';
+        bodyElement.style.backgroundColor = 'rgba(180, 204, 217, 1)';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Rainy">';
+        
+        // Apply the rain effect overlay
         enableRainOverlay();
     } else {
+        // Default to cloudy weather if unrecognized code
         bodyElement.classList.add('cloudy-weather');
-        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken_bewölkt.svg" alt="Cloudy">';
-        disableRainOverlay();
+        bodyElement.style.backgroundColor = 'rgba(170, 210, 231, 1)';
+        weatherSvgContainer.innerHTML = '<img src="SVG/Wolken bewölkt.svg" alt="Cloudy">';
+
+        disableRainOverlay(); // Disable rain overlay if it was enabled
     }
 }
 
-// Function to enable rain overlay
+// Enable rain overlay when it’s rainy
 function enableRainOverlay() {
     const rainOverlay = `
         <div class="rain front-row"></div>
-        <div class="rain back-row"></div>`;
-    document.body.insertAdjacentHTML('beforeend', rainOverlay);
+        <div class="rain back-row"></div>
+        <div class="toggles">
+            <div class="splat-toggle toggle active"></div>
+            <div class="back-row-toggle toggle active"><br></div>
+            <div class="single-toggle toggle"></div>
+        </div>`;
+    
+    document.body.innerHTML += rainOverlay;
     makeItRain();
 }
 
-// Function to disable rain overlay
 function disableRainOverlay() {
     document.querySelectorAll('.rain').forEach(el => el.innerHTML = '');
 }
 
-// Rain animation function
-function makeItRain() {
+// Get the user's location and fetch weather data
+getUserPosition()
+    .then(position => {
+        const { latitude, longitude } = position;
+        fetchWeather(latitude, longitude); // Fetch weather based on user's position
+    })
+    .catch(error => {
+        console.error("Error getting user position:", error);
+    });
+
+// Rain animation function (Make it Rain)
+var makeItRain = function () {
+    // clear out everything
     document.querySelectorAll('.rain').forEach(el => el.innerHTML = '');
-    // Add drops logic here, as in the original code.
-}
+
+    var increment = 0;
+    var drops = "";
+    var backDrops = "";
+
+    while (increment < 100) {
+        // couple random numbers to use for various randomizations
+        var randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
+        var randoFiver = (Math.floor(Math.random() * (5 - 2 + 1) + 2));
+
+        increment += randoFiver;
+
+        drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+        backDrops += '<div class="drop" style="right: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+    }
+
+    document.querySelector('.rain.front-row').innerHTML = drops;
+    document.querySelector('.rain.back-row').innerHTML = backDrops;
+};
 
 // Initialize sun/moon position, ISS direction, and weather on DOM content loaded
 document.addEventListener("DOMContentLoaded", async () => {
