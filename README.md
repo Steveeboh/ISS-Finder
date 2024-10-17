@@ -2,7 +2,17 @@
 IM 3 Arbeit
 
 Wetter-API Ungenauigkeiten
-Die angezeigten Wetterdaten stammen von einer externen Wetter-API. Aufgrund von API-Beschränkungen und unterschiedlichen Datenquellen kann die Genauigkeit der Wettervorhersagen variieren. Nutzer sollten sich bewusst sein, dass die angezeigten Informationen nicht immer exakt sind. Es gäbe 3 verschiedene Wetterzustände für Sonnig, bewölkt und regenerisch welche dynamisch anhand der Wolken und Hintergrundfarben angezeigt werden. Zudem gibt es einen Nachtmodus der aktiv wird sobald die Sonne untergegangen ist
+Die angezeigten Wetterdaten stammen von einer externen Wetter-API. Aufgrund von API-Beschränkungen und unterschiedlichen Datenquellen kann die Genauigkeit der Wettervorhersagen variieren. Nutzer sollten sich bewusst sein, dass die angezeigten Informationen nicht immer exakt sind. Es gäbe 3 verschiedene Wetterzustände für Sonnig, bewölkt und regenerisch welche dynamisch anhand der Wolken und Hintergrundfarben angezeigt werden. Zudem gibt es einen Nachtmodus der aktiv wird sobald die Sonne untergegangen ist.
+
+um die verschiedenen weather states zu testen kann man diese console comandds verwenden:
+updateWeatherAppearance(0);  // For sunny
+updateWeatherAppearance(45);  // For cloudy
+updateWeatherAppearance(61);  // For rain
+
+Der Nachtmodus funktioniert nur zuverlässig wenn er in der Nacht getestet wird. Es gibt einen debuging modus welcher im finder.html auskomentiert ist bei diesem wird die mond position auf dem weissen bogen jedoch nicht zuverlässig dargestellt
+
+Bei gewissen wetter in kombination mit dem nacht modus kann es zu komplikationen kommen.
+
 
 Standortermittlung auf der Landing- und Finder-Seite
 Die Funktion zum laden der API's auf der Landing-Seite funktioniert möglicherweise nicht wie erwartet. Dies kann zu längeren Ladezeiten der API's führen.

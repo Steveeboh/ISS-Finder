@@ -467,14 +467,18 @@ function updatePositions(yesterdayTimes, todayTimes, tomorrowTimes) {
     const currentTime = getCurrentTime(); // Verwende die simulierte Zeit oder die tatsächliche aktuelle Zeit
     let percentage;
 
+    const bogenElement = document.getElementById("bogen");
+
     if (currentTime >= todayTimes.sunrise && currentTime < todayTimes.sunset) {
         // Tag: Aktualisiere die Position der Sonne
         percentage = calculateSunPosition(todayTimes.sunrise, todayTimes.sunset);
         updateVisibility('sun', percentage, true, false);
+        bogenElement.src = 'SVG/Bogen_schwarz.svg';
     } else if (currentTime >= todayTimes.sunset && currentTime < tomorrowTimes.sunrise) {
         // Nacht: Aktualisiere die Position des Mondes (von Sonnenuntergang bis Sonnenaufgang)
         percentage = calculateNightPosition(todayTimes.sunset, tomorrowTimes.sunrise);
         updateVisibility('moon', percentage, true, true);
+        bogenElement.src = 'SVG/Bogen_weiss.svg';
     } else if (currentTime >= yesterdayTimes.sunset && currentTime < todayTimes.sunrise) {
         // Nacht: Aktualisiere die Position des Mondes (von gestrigem Sonnenuntergang bis heutigem Sonnenaufgang)
         percentage = calculateNightPosition(yesterdayTimes.sunset, todayTimes.sunrise);
@@ -483,40 +487,40 @@ function updatePositions(yesterdayTimes, todayTimes, tomorrowTimes) {
         console.error("Konnte den Tag-/Nachtstatus nicht bestimmen.");
     }
 
-    function updateVisibility(elementId, percentage, isVisible, isNight = false) {
-        const sunElement = document.getElementById("sun");
-        const moonElement = document.getElementById("moon");
-        const bogenElement = document.getElementById("bogen");
-        const bodyElement = document.body;
+    // function updateVisibility(elementId, percentage, isVisible, isNight = false) {
+    //     const sunElement = document.getElementById("sun");
+    //     const moonElement = document.getElementById("moon");
+    //     const bogenElement = document.getElementById("bogen");
+    //     const bodyElement = document.body;
     
-        if (isNight) {
-            // Night mode: Show the moon, hide the sun, set background to black, switch SVG
-            if (moonElement) {
-                moonElement.style.display = isVisible ? 'block' : 'none';
-                moonElement.style.setProperty('offset-distance', `${percentage}%`);
-            }
-            if (sunElement) {
-                sunElement.style.display = 'none';
-            }
-            if (bogenElement) {
-                bogenElement.src = 'SVG/Bogen_weiss.svg';  // Change to white SVG
-            }
-            bodyElement.style.backgroundColor = 'black';
-        } else {
-            // Day mode: Show the sun, hide the moon, set background to bright, switch SVG
-            if (sunElement) {
-                sunElement.style.display = isVisible ? 'block' : 'none';
-                sunElement.style.setProperty('offset-distance', `${percentage}%`);
-            }
-            if (moonElement) {
-                moonElement.style.display = 'none';
-            }
-            if (bogenElement) {
-                bogenElement.src = 'SVG/Bogen_schwarz.svg';  // Change to black SVG
-            }
-            bodyElement.style.backgroundColor = 'rgba(155, 219, 254, 1)';
-        }
-    }
+    //     if (isNight) {
+    //         // Night mode: Show the moon, hide the sun, set background to black, switch SVG
+    //         if (moonElement) {
+    //             moonElement.style.display = isVisible ? 'block' : 'none';
+    //             moonElement.style.setProperty('offset-distance', `${percentage}%`);
+    //         }
+    //         if (sunElement) {
+    //             sunElement.style.display = 'none';
+    //         }
+    //         if (bogenElement) {
+    //             bogenElement.src = 'SVG/Bogen_weiss.svg';  // Change to white SVG
+    //         }
+    //         bodyElement.style.backgroundColor = 'black';
+    //     } else {
+    //         // Day mode: Show the sun, hide the moon, set background to bright, switch SVG
+    //         if (sunElement) {
+    //             sunElement.style.display = isVisible ? 'block' : 'none';
+    //             sunElement.style.setProperty('offset-distance', `${percentage}%`);
+    //         }
+    //         if (moonElement) {
+    //             moonElement.style.display = 'none';
+    //         }
+    //         if (bogenElement) {
+    //             bogenElement.src = 'SVG/Bogen_schwarz.svg';  // Change to black SVG
+    //         }
+    //         bodyElement.style.backgroundColor = 'rgba(155, 219, 254, 1)';
+    //     }
+    // }
     
 }
 
