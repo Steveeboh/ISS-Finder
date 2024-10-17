@@ -7,7 +7,7 @@ IM 3 Arbeit
 ISS Finder ist eine interaktive Plattform, die Benutzern ermöglicht, die Position der Internationalen Raumstation (ISS) relativ zu deiner Position in Echtzeit zu verfolgen. Die Website bietet aktuelle Wetterdaten, lokale Sonnen- und Mondzeiten sowie die Zeit seit dem letzten Vorbeiflug der ISS. Damit ist sie eine ideale Anlaufstelle für alle, die am Himmel interessiert sind.
 
 ## Autoren
-Diese Website wurde von Steve Walker und Cecilia Comisso erstellt.
+Diese Website wurde von Steve Walker und Cecilia Commisso erstellt.
 
 ## Features
 Echtzeit-Tracking der ISS
