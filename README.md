@@ -10,6 +10,7 @@ ISS Finder ist eine interaktive Plattform, die Benutzern ermöglicht, die Positi
 Diese Website wurde von Steve Walker und Cecilia Commisso erstellt.
 
 ## Features
+Damit die Webseite funktioniert muss die Standortabfrage vom Browser/Gerät aktiviert sein.
 Echtzeit-Tracking der ISS
 Aktuelle Wetterinformationen
 Berechnung der Sonnen- und Mondzeiten
@@ -47,7 +48,6 @@ Starten von Webserver
 Umgang mit Datenbanken
 
 ## Probleme / Bugs
-
 Wetter-API Ungenauigkeiten
 Die angezeigten Wetterdaten stammen von einer externen Wetter-API. Aufgrund von API-Beschränkungen und unterschiedlichen Datenquellen kann die Genauigkeit der Wettervorhersagen variieren. Nutzer sollten sich bewusst sein, dass die angezeigten Informationen nicht immer exakt sind. Es gäbe 3 verschiedene Wetterzustände für Sonnig, bewölkt und regenerisch welche dynamisch anhand der Wolken und Hintergrundfarben angezeigt werden. Zudem gibt es einen Nachtmodus der aktiv wird sobald die Sonne untergegangen ist.
 
